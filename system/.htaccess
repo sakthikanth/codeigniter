@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c> 
+ RewriteEngine On
+ #rename "MyProject/" with your application directory 
+ #For example you rename the entire CodeIgniter application as "mysite" 
+ #then, the "RewriteBase /" will be like this "RewriteBase /mysite" 
+ #same as at line number 10, "RewriteRule ^(.*)$ /MyProject//index.php #/$1 [L]" will be like this "RewriteRule ^(.*)$ /mysite/index.php/$1 [L]"
+ RewriteBase /MyProject/
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^(.*)$ /MyProject/index.php/$1 [L]
+</IfModule>
